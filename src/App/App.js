@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import {fakeOrders} from '../mock/fakeOrders';
 import Order from '../Order/Order';

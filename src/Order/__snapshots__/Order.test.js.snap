@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component  1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      @SHOP@
+    </span>
+    <span>
+      1 января, чт, 1970 год
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  >
+    <div
+      className="Order-item"
+      key="0"
+    >
+      @ITEM1
+    </div>
+    <div
+      className="Order-item"
+      key="1"
+    >
+      @ITEM2
+    </div>
+    <div
+      className="Order-item"
+      key="2"
+    >
+      @ITEM3
+    </div>
+  </div>
+</div>
+`;
