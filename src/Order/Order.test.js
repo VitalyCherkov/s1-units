@@ -12,7 +12,7 @@ const defaultProps = {
     '@ITEM2',
     '@ITEM3',
   ],
-  date: 123,
+  date: 123321,
 };
 
 configure({ adapter: new Adapter() });
@@ -20,10 +20,56 @@ configure({ adapter: new Adapter() });
 describe('App component', () => {
   const wrapper = shallow(<Order order={defaultProps} />);
 
-  it('', () => {
+  it('has shop name', () => {
     const order = defaultProps;
 
     wrapper.setProps({ order });
-    expect(toJson(wrapper)).toMatchSnapshot();
+
+    const shop = wrapper
+      .find('.Order-shop')
+      .contains(defaultProps.shop);
+    expect(shop).toEqual(true);
+  });
+
+  it('has date', () => {
+    const order = defaultProps;
+
+    wrapper.setProps({ order });
+
+    const correctDate = '1 января, чт, 1970 год';
+
+    const header = wrapper
+      .find('.Order-header')
+      .contains(correctDate);
+    (header).toEqual(true);
+  });
+
+  it('has items', () => {
+    const order = defaultProps;
+
+    wrapper.setProps({ order });
+
+
+    const items = wrapper
+      .find('.Order-item')
+      .children();
+
+    expect(items).toHaveLength(order.items.length);
+  });
+
+  it('has no items', () => {
+    const order = {
+      shop: '@SHOP@',
+      items: [],
+      date: 123321,
+    };
+
+    wrapper.setProps({ order });
+
+    const items = wrapper
+      .find('.Order-item')
+      .length;
+
+    expect(items).toEqual(0);
   });
 });
